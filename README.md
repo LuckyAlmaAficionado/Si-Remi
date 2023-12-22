@@ -1,4 +1,4 @@
-# simedi
+# Si Medi
 
 A new Flutter project.
 
