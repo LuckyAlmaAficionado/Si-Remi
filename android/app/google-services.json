@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "866388791958",
+    "project_id": "si-remi",
+    "storage_bucket": "si-remi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:866388791958:android:e31d15177b2d0a9fea68b7",
+        "android_client_info": {
+          "package_name": "com.luckyalma.simedi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq9kFOjGW_Kar8kWsFt8PTtnXgdFnyBmE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
