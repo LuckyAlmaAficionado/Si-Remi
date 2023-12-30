@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_controller.dart';
 import 'package:get/get.dart';
 import 'package:simedi/app/constant/constant.dart';
 import 'package:simedi/app/modules/asking/models/question.dart';
-import 'package:simedi/app/modules/home/views/home_view.dart';
 import 'package:simedi/app/routes/app_pages.dart';
 
 class AskingController extends GetxController {
