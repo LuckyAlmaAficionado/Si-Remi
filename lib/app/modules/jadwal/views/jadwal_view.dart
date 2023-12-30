@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:simedi/app/constant/constant.dart';
 import 'package:simedi/app/models/jadwal.dart';
 
 import '../controllers/jadwal_controller.dart';
@@ -12,6 +13,7 @@ class JadwalView extends GetView<JadwalController> {
   const JadwalView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    Get.put(JadwalController());
     return Scaffold(
       body: Container(
         width: Get.width,
@@ -19,7 +21,7 @@ class JadwalView extends GetView<JadwalController> {
         child: Column(
           children: [
             Container(
-              color: Colors.pink,
+              color: primaryColor,
               padding: const EdgeInsets.all(20),
               child: Center(
                 child: SafeArea(
@@ -73,19 +75,23 @@ class JadwalView extends GetView<JadwalController> {
                                 fontSize: 16,
                               ),
                             ),
-                            trailing: GestureDetector(
-                              onTap: () => controller.dialogBoxConfirm(index),
-                              child: Container(
-                                width: 50,
-                                height: 50,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.green,
-                                ),
-                                child: Center(
-                                  child: Icon(
-                                    Icons.done,
-                                    color: Colors.white,
+                            trailing: Material(
+                              color: primaryColor,
+                              borderRadius: BorderRadius.circular(10),
+                              child: InkWell(
+                                onTap: () => controller.dialogBoxConfirm(index),
+                                borderRadius: BorderRadius.circular(10),
+                                child: Container(
+                                  width: 50,
+                                  height: 50,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Center(
+                                    child: Icon(
+                                      Icons.done,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 ),
                               ),

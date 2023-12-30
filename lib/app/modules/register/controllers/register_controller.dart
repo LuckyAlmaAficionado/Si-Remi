@@ -99,11 +99,17 @@ class RegisterController extends GetxController {
             (error, stackTrace) => print('Error writing document: $error'),
           );
       Get.back();
-      Constant.snackbar(
-          'Congratulations!', 'Successfully create account', true);
+      Constant.snack('Congratulations!', 'Successfully create account', true);
       await Future.delayed(const Duration(seconds: 2));
       Get.toNamed(Routes.LOGIN);
     } on FirebaseAuthException catch (e) {
+      print("code register: ${e.code}");
+
+      String arg = e.code;
+      if (arg == "email-already-in-use") {
+        Constant.snack('Oh Snap!', 'Email already in user', false);
+      } else {}
+      print("code register: ${e.code}");
       throw e;
     }
   }

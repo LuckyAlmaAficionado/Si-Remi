@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:simedi/app/constant/constant.dart';
 import 'package:simedi/app/widgets/custom_button.dart';
 import 'package:simedi/app/widgets/custom_textfield.dart';
 
@@ -14,6 +15,7 @@ class ReminderView extends GetView<ReminderController> {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(ReminderController());
     return Scaffold(
       body: Container(
         width: Get.width,
@@ -125,7 +127,7 @@ class ReminderView extends GetView<ReminderController> {
               ),
               const Gap(80),
               CustomButton(
-                text: 'SIMPAN',
+                text: 'Simpan',
                 onTap: () => controller.setLocalNotification(
                   controller.namaObatC.text,
                   controller.dosisObatC.text,
@@ -149,7 +151,7 @@ class NavBarSetReminder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.pink,
+      color: primaryColor,
       padding: const EdgeInsets.all(20),
       child: Center(
         child: SafeArea(

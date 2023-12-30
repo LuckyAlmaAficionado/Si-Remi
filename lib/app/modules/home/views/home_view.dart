@@ -3,6 +3,10 @@ import 'package:gap/gap.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:simedi/app/constant/constant.dart';
+import 'package:simedi/app/modules/asking/views/asking_view.dart';
+import 'package:simedi/app/modules/jadwal/views/jadwal_view.dart';
+import 'package:simedi/app/modules/reminder/views/reminder_view.dart';
 import 'package:simedi/app/routes/app_pages.dart';
 
 import '../controllers/home_controller.dart';
@@ -12,46 +16,81 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: Get.width,
-        height: Get.height,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Obx(() => NavBarHomeView(
-                  controller: controller.searchC,
-                  namaPengguna: controller.name.value,
-                )),
-            const Gap(40),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CustomTileMenuHome(
-                    icons: Icons.timelapse_rounded,
-                    text: 'reminder\nobat',
-                    onTap: () => Get.toNamed(Routes.REMINDER),
+      body: WillPopScope(
+        onWillPop: () async => await Get.offAllNamed(Routes.HOME),
+        child: Container(
+          width: Get.width,
+          height: Get.height,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Obx(() => NavBarHomeView(
+                    controller: controller.searchC,
+                    namaPengguna: controller.name.value,
+                  )),
+              const Gap(15),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Material(
+                  color: primaryContainerColor,
+                  borderRadius: BorderRadius.circular(10),
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(10),
+                    splashColor: Colors.white,
+                    onTap: () =>
+                        Get.to(AskingView(), transition: Transition.cupertino),
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      height: Get.height * 0.1,
+                      child: Row(
+                        children: [
+                          Image.asset('assets/images/asking.png'),
+                          const Gap(20),
+                          Text(
+                            'Bagaimana keadaan kamu?',
+                            style: GoogleFonts.outfit(
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
-                  CustomTileMenuHome(
-                    text: 'jadwal\nobat',
-                    onTap: () => Get.toNamed(Routes.JADWAL),
-                    icons: Icons.calendar_month,
-                  ),
-                  CustomTileMenuHome(
-                    text: 'Riwayat\nobat',
-                    onTap: () => Get.toNamed(Routes.HISTORY),
-                    icons: Icons.history,
-                  ),
-                  CustomTileMenuHome(
-                    text: 'Logout',
-                    onTap: () => controller.logout(),
-                    icons: Icons.logout,
-                  ),
-                ],
+                ),
               ),
-            ),
-          ],
+              const Gap(15),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    CustomTileMenuHome(
+                      text: 'Reminder\nobat',
+                      onTap: () => Get.to(ReminderView(),
+                          transition: Transition.downToUp),
+                      image: 'notification.png',
+                    ),
+                    CustomTileMenuHome(
+                      text: 'Jadwal\nobat',
+                      onTap: () => Get.to(JadwalView(),
+                          transition: Transition.leftToRightWithFade),
+                      image: 'calendar.png',
+                    ),
+                    CustomTileMenuHome(
+                      text: 'Riwayat\nobat',
+                      onTap: () => Get.toNamed(Routes.HISTORY),
+                      image: 'medical-history.png',
+                    ),
+                    CustomTileMenuHome(
+                      text: 'Logout',
+                      onTap: () => controller.logout(),
+                      image: 'logout.png',
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -63,12 +102,12 @@ class CustomTileMenuHome extends StatelessWidget {
     super.key,
     required this.text,
     required this.onTap,
-    required this.icons,
+    required this.image,
   });
 
   final String text;
+  final String image;
   final Function() onTap;
-  final IconData icons;
 
   @override
   Widget build(BuildContext context) {
@@ -78,22 +117,23 @@ class CustomTileMenuHome extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Colors.pink,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Icon(
-                icons,
-                size: 35,
-                color: Colors.white,
-              ),
-            ),
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: primaryContainerColor,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Image.asset(
+                  'assets/images/$image',
+                  fit: BoxFit.fill,
+                  width: 50,
+                )),
             const Gap(10),
             Text(
               text,
               textAlign: TextAlign.center,
-              style: GoogleFonts.outfit(),
+              style: GoogleFonts.outfit(
+                fontWeight: FontWeight.normal,
+              ),
             ),
           ],
         ),
@@ -127,7 +167,7 @@ class NavBarHomeView extends StatelessWidget {
             width: Get.width,
             height: Get.height * 0.26,
             decoration: BoxDecoration(
-              color: Colors.pink,
+              color: primaryColor,
               boxShadow: [
                 BoxShadow(
                   offset: Offset(0, 4),
@@ -183,10 +223,10 @@ class NavBarHomeView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
-                      offset: Offset(0, 4),
-                      color: Colors.grey.shade400,
-                      blurRadius: 10,
-                      spreadRadius: 1,
+                      offset: Offset(0, 3),
+                      color: Colors.black12,
+                      blurRadius: 5,
+                      spreadRadius: 2,
                     )
                   ]),
               child: TextField(
@@ -200,7 +240,7 @@ class NavBarHomeView extends StatelessWidget {
                     onTap: () {},
                     child: Icon(
                       Icons.search,
-                      color: Colors.pink,
+                      color: primaryColor,
                     ),
                   ),
                   contentPadding: const EdgeInsets.symmetric(

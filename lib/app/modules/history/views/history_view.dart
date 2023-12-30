@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:simedi/app/constant/constant.dart';
 
 import '../../../models/jadwal.dart';
 import '../controllers/history_controller.dart';
@@ -20,6 +21,7 @@ class HistoryView extends GetView<HistoryController> {
           Expanded(
             child: Obx(
               () => ListView.builder(
+                  physics: BouncingScrollPhysics(),
                   padding: const EdgeInsets.symmetric(),
                   itemCount: controller.listJadwal.length,
                   itemBuilder: (context, index) {
@@ -49,12 +51,12 @@ class HistoryView extends GetView<HistoryController> {
                               height: 50,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                color: Colors.pink,
+                                color: primaryContainerColor.withOpacity(0.6),
                               ),
                               child: Center(
                                 child: Icon(
                                   Icons.question_mark_sharp,
-                                  color: Colors.white,
+                                  color: primaryColor,
                                 ),
                               ),
                             ),
@@ -80,7 +82,7 @@ class NavBarRiwayatMinumObat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.pink,
+      color: primaryColor,
       padding: const EdgeInsets.all(20),
       child: Center(
         child: SafeArea(

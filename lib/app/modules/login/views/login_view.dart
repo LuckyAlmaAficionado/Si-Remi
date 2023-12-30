@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:simedi/app/constant/constant.dart';
 import 'package:simedi/app/routes/app_pages.dart';
 import 'package:simedi/app/widgets/custom_button.dart';
 import 'package:simedi/app/widgets/custom_textfield.dart';
@@ -115,7 +116,7 @@ class CustomLogoSiRemi extends StatelessWidget {
           'Si',
           style: GoogleFonts.outfit(
             fontWeight: FontWeight.w600,
-            color: Colors.pink,
+            color: primaryColor,
             fontSize: fontSize,
           ),
         ),
@@ -124,7 +125,7 @@ class CustomLogoSiRemi extends StatelessWidget {
           'Remi',
           style: GoogleFonts.outfit(
             fontWeight: FontWeight.w300,
-            color: Colors.pink,
+            color: primaryColor,
             fontSize: fontSize,
           ),
         ),

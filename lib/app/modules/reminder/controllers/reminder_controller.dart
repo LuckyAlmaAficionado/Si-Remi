@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:simedi/app/constant/constant.dart';
 import 'package:simedi/app/controller/nofitication.dart';
 import 'package:simedi/app/models/akun.dart';
 import 'package:simedi/app/models/jadwal.dart';
@@ -78,9 +79,9 @@ class ReminderController extends GetxController {
           onError: (error) => print('Error updating document $error'));
 
       initJadwal();
-      Get.snackbar('Congratulations', 'berhasil membuat pengingat!');
+      Constant.snack('Congratulations!', 'Reminder created successfully', true);
       await Future.delayed(const Duration(seconds: 2));
-      Get.offNamed(Routes.HOME);
+      Get.offAllNamed(Routes.HOME);
     } on FirebaseException catch (e) {
       throw e;
     }
@@ -131,6 +132,16 @@ class ReminderController extends GetxController {
   }
 
   setLocalNotification(String namaObat, String dosisObat, Status statusMinum) {
+    if (namaObat.isEmpty || namaObat == '') {
+      Constant.snack('Oh Snap!', "Input nama obat", false);
+      return;
+    }
+
+    if (dosisObat.isEmpty || dosisObat == '') {
+      Constant.snack('Oh Snap!', "Input dosis obat", false);
+      return;
+    }
+
     int hour = int.parse(DateFormat('HH').format(pickerTime));
     int minute = int.parse(DateFormat('m').format(pickerTime));
 

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
+import 'package:get/get.dart';
 
 class NotificationController extends GetxController {
   static FlutterLocalNotificationsPlugin flnp =
@@ -54,7 +54,6 @@ class NotificationController extends GetxController {
 
       if (scheduleDate.isBefore(now)) {
         scheduleDate = scheduleDate.add(const Duration(days: 1));
-        print('masuk sini');
       }
 
       var androidPlatformChannelSpecifies =
@@ -74,8 +73,6 @@ class NotificationController extends GetxController {
             UILocalNotificationDateInterpretation.absoluteTime,
         matchDateTimeComponents: DateTimeComponents.dateAndTime,
       );
-
-      print('notificasi berhasil dibuat');
     } catch (e) {
       throw e;
     }

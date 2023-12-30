@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:simedi/app/constant/constant.dart';
 
 class CustomTextField extends StatelessWidget {
   CustomTextField({
@@ -61,7 +62,7 @@ class CustomTextField extends StatelessWidget {
                       onTap: onTap,
                       child: Icon(
                         iconsData,
-                        color: Colors.pink,
+                        color: secondary,
                       ),
                     )
                   : null,

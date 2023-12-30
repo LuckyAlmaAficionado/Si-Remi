@@ -44,11 +44,14 @@ class LoginController extends GetxController {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
       Get.offAllNamed(Routes.HOME);
     } on FirebaseAuthException catch (e) {
+      print("code: ${e.code}");
       if (e.code == 'user-not-found') {
         Constant.snackbar('Oh Snap!', 'No user found for that email', false);
       } else if (e.code == 'wrong-password') {
         Constant.snackbar(
             'Oh Snap!', 'Wrong password provided for that user', false);
+      } else if (e.code == "invalid-credential") {
+        Constant.snack('Oh Snap!', 'Incorrect email or password', false);
       }
       throw e;
     }

@@ -45,7 +45,10 @@ class JadwalController extends GetxController {
         ),
       ),
       confirm: GestureDetector(
-        onTap: () => updateStatusMinumObat(index),
+        onTap: () {
+          updateStatusMinumObat(index);
+          return Get.back();
+        },
         child: Container(
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
