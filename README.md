@@ -1,16 +1,30 @@
-# simedi
+**Si Remi - Aplikasi Pengingat Minum Obat**
 
-A new Flutter project.
+"Si Remi" adalah aplikasi sederhana yang bertujuan membantu pengguna untuk menjaga jadwal minum obat mereka. Dibangun dengan menggunakan Flutter, Firebase, GetX, dan CLI sebagai pola kode.
 
-## Getting Started
+### Fitur Utama
+- **Otentikasi Pengguna:** Mengamankan data pengguna dengan Firebase Authentication.
+  
+- **Manajemen Jadwal:** Menambah, mengubah, dan menghapus jadwal minum obat dengan mudah.
 
-This project is a starting point for a Flutter application.
+- **Pemberitahuan (Reminder):** Notifikasi untuk mengingatkan pengguna pada waktu minum obat yang telah dijadwalkan.
 
-A few resources to get you started if this is your first Flutter project:
+### Penggunaan
+1. Pastikan sudah menginstal Flutter dan Firebase di lingkungan pengembangan Anda.
+2. Atur konfigurasi Firebase di file `google-services.json`.
+3. Jalankan perintah CLI untuk memulai proyek atau membuat file baru.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Struktur Proyek
+- `lib/`: Kode sumber Flutter.
+- `cli/`: Perintah CLI untuk pengelolaan proyek.
+- `assets/`: Asset seperti gambar atau font.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Cara Menjalankan Aplikasi
+1. Buka terminal dan arahkan ke direktori proyek.
+2. Jalankan perintah `flutter run` untuk menjalankan aplikasi.
+
+### Kontribusi
+Anda dapat berkontribusi dengan cara membuka *pull request* dan melaporkan *issue*.
+
+### Lisensi
+Proyek ini dilisensikan di bawah MIT License - lihat file [LICENSE](LICENSE) untuk detailnya.
