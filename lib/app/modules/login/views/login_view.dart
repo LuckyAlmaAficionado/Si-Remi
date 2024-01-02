@@ -16,15 +16,17 @@ class LoginView extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        alignment: Alignment.center,
         width: Get.width,
         height: Get.height,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-              child: Container(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 20),
                 width: Get.width * 0.8,
-                height: Get.height * 0.5,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
@@ -69,30 +71,30 @@ class LoginView extends GetView<LoginController> {
                   ],
                 ),
               ),
-            ),
-            const Gap(40),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "don't have account? ",
-                  style: GoogleFonts.outfit(
-                    color: Colors.black,
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () => Get.toNamed(Routes.REGISTER),
-                  child: Text(
-                    "Register",
+              const Gap(40),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "don't have account? ",
                     style: GoogleFonts.outfit(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.w600,
+                      color: Colors.black,
                     ),
                   ),
-                )
-              ],
-            )
-          ],
+                  GestureDetector(
+                    onTap: () => Get.toNamed(Routes.REGISTER),
+                    child: Text(
+                      "Register",
+                      style: GoogleFonts.outfit(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

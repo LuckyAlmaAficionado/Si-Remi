@@ -24,6 +24,7 @@ class RegisterView extends GetView<RegisterController> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const Gap(30),
                 Center(
                   child: Container(
                     width: Get.width * 0.8,

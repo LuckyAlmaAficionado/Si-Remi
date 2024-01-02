@@ -15,6 +15,7 @@ class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    print(Get.width);
     return Scaffold(
       body: WillPopScope(
         onWillPop: () async => await Get.offAllNamed(Routes.HOME),
@@ -46,10 +47,12 @@ class HomeView extends GetView<HomeController> {
                         children: [
                           Image.asset('assets/images/asking.png'),
                           const Gap(20),
-                          Text(
-                            'Bagaimana keadaan kamu?',
-                            style: GoogleFonts.outfit(
-                              fontSize: 16,
+                          Expanded(
+                            child: Text(
+                              'Bagaimana keadaan kamu?',
+                              style: GoogleFonts.outfit(
+                                fontSize: 16,
+                              ),
                             ),
                           ),
                         ],
@@ -156,7 +159,7 @@ class NavBarHomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: Get.width,
-      height: Get.height * 0.28,
+      height: (Get.height < 600) ? Get.height * 0.37 : Get.height * 0.28,
       child: Stack(
         children: [
           Container(
@@ -165,7 +168,7 @@ class NavBarHomeView extends StatelessWidget {
               vertical: 30,
             ),
             width: Get.width,
-            height: Get.height * 0.26,
+            height: (Get.height < 600) ? Get.height * 0.33 : Get.height * 0.26,
             decoration: BoxDecoration(
               color: primaryColor,
               boxShadow: [
