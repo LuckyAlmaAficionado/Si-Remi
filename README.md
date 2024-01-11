@@ -1,30 +1,35 @@
-**Si Remi - Aplikasi Pengingat Minum Obat**
+# Siremi - Aplikasi Pengingat Minum Obat 🕒💊
 
-"Si Remi" adalah aplikasi sederhana yang bertujuan membantu pengguna untuk menjaga jadwal minum obat mereka. Dibangun dengan menggunakan Flutter, Firebase, GetX, dan CLI sebagai pola kode.
+Siremi, singkatan dari "Si Reminder", adalah aplikasi inovatif untuk membantu Anda mengingat waktu minum obat secara teratur. Dengan fitur-fitur canggih, Siremi membuat manajemen jadwal minum obat menjadi lebih mudah dan efektif.
 
-### Fitur Utama
-- **Otentikasi Pengguna:** Mengamankan data pengguna dengan Firebase Authentication.
-  
-- **Manajemen Jadwal:** Menambah, mengubah, dan menghapus jadwal minum obat dengan mudah.
+## Fitur Utama:
 
-- **Pemberitahuan (Reminder):** Notifikasi untuk mengingatkan pengguna pada waktu minum obat yang telah dijadwalkan.
+### 1. Autentikasi Firebase
+- Siremi menggunakan Firebase Authentication untuk login dan registrasi aplikasi, memberikan keamanan ekstra untuk pengguna.
 
-### Penggunaan
-1. Pastikan sudah menginstal Flutter dan Firebase di lingkungan pengembangan Anda.
-2. Atur konfigurasi Firebase di file `google-services.json`.
-3. Jalankan perintah CLI untuk memulai proyek atau membuat file baru.
+### 2. Penyimpanan Berkas Firebase
+- Firebase Storage digunakan untuk menyimpan beberapa file, memungkinkan pengguna menyimpan catatan atau informasi penting terkait obat.
 
-### Struktur Proyek
-- `lib/`: Kode sumber Flutter.
-- `cli/`: Perintah CLI untuk pengelolaan proyek.
-- `assets/`: Asset seperti gambar atau font.
+### 3. Pengingat Minum Obat
+- Gunakan Siremi untuk menyetel waktu pengingat minum obat, memastikan Anda tidak melewatkan jadwal minum yang penting.
 
-### Cara Menjalankan Aplikasi
-1. Buka terminal dan arahkan ke direktori proyek.
-2. Jalankan perintah `flutter run` untuk menjalankan aplikasi.
+### 4. Local Push Notification
+- Siremi mengintegrasikan flutter pub.dev Local Push Notification untuk memberikan notifikasi tepat waktu, memperingatkan pengguna tentang jadwal minum obat.
 
-### Kontribusi
-Anda dapat berkontribusi dengan cara membuka *pull request* dan melaporkan *issue*.
+### 5. Otomatis Berhenti Notifikasi
+- Notifikasi pengingat berhenti secara otomatis ketika pengguna telah mengonsumsi obat, memastikan ketepatan dan menghindari kebingungan.
 
-### Lisensi
-Proyek ini dilisensikan di bawah MIT License - lihat file [LICENSE](LICENSE) untuk detailnya.
+### 6. Riwayat Minum Obat
+- Siremi menyimpan riwayat minum obat yang ditampilkan dengan rinci, mencakup informasi tentang obat dan detail pengonsumsian. Riwayat ini memberikan pandangan menyeluruh tentang kepatuhan pengguna terhadap jadwal minum obat.
+
+## Screenshots Aplikasi
+
+![Screenshot 1!](assets/screenshots/ss1.png)
+
+![Screenshot 2!](assets/screenshots/ss2.png)
+
+![Screenshot 3!](assets/screenshots/ss3.png)
+
+![Screenshot 4!](assets/screenshots/ss4.png)
+
+Dengan Siremi, tidak perlu khawatir lagi tentang melewatkan jadwal minum obat. Aplikasi ini memberikan pengingat yang efisien dan riwayat yang terperinci, menjadikannya teman setia dalam menjaga kesehatan Anda. 🌟

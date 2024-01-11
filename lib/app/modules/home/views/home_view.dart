@@ -15,7 +15,6 @@ class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    print(Get.width);
     return Scaffold(
       body: WillPopScope(
         onWillPop: () async => await Get.offAllNamed(Routes.HOME),
